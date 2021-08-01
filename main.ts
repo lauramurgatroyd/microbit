@@ -1,4 +1,5 @@
 let moving = 0
+let degrees = 0
 input.onButtonPressed(Button.A, function () {
     if (moving == 1) {
         basic.showLeds(`
@@ -61,4 +62,7 @@ input.onButtonPressed(Button.B, function () {
     music.playTone(349, music.beat(BeatFraction.Whole))
     music.playTone(392, music.beat(BeatFraction.Whole))
     music.playTone(349, music.beat(BeatFraction.Double))
+})
+basic.forever(function () {
+    degrees = input.compassHeading()
 })
