@@ -7,9 +7,15 @@ input.onButtonPressed(Button.A, function () {
         # . . . #
         . # # # .
         `)
-    kitronik_klip_motor.motorOn(kitronik_klip_motor.Motors.Motor1, kitronik_klip_motor.MotorDirection.Forward, 100)
-    kitronik_klip_motor.motorOn(kitronik_klip_motor.Motors.Motor2, kitronik_klip_motor.MotorDirection.Forward, 100)
-    moving = 1
+    if (moving == 1) {
+        kitronik_klip_motor.motorOff(kitronik_klip_motor.Motors.Motor1)
+        kitronik_klip_motor.motorOff(kitronik_klip_motor.Motors.Motor2)
+        moving = 0
+    } else {
+        kitronik_klip_motor.motorOn(kitronik_klip_motor.Motors.Motor1, kitronik_klip_motor.MotorDirection.Forward, 100)
+        kitronik_klip_motor.motorOn(kitronik_klip_motor.Motors.Motor2, kitronik_klip_motor.MotorDirection.Forward, 100)
+        moving = 1
+    }
 })
 input.onButtonPressed(Button.B, function () {
     music.playTone(262, music.beat(BeatFraction.Half))
