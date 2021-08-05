@@ -1,5 +1,5 @@
 
-> Open this page at [https://lauramurgatroyd.github.io/microbit/](https://lauramurgatroyd.github.io/microbit/)
+> Open this page at [https://lauramurgatroyd.github.io/microbit/](https://lauramurgatroyd.github.io/microbit-robot/)
 
 ## Use as Extension
 
@@ -10,7 +10,7 @@ This repository can be added as an **extension** in MakeCode.
 * click on **Extensions** under the gearwheel menu
 * search for **https://github.com/lauramurgatroyd/microbit** and import
 
-## Edit this project ![Build status badge](https://github.com/lauramurgatroyd/microbit/workflows/MakeCode/badge.svg)
+## Edit this project ![Build status badge](https://github.com/lauramurgatroyd/microbit-robot/workflows/MakeCode/badge.svg)
 
 To edit this repository in MakeCode.
 
@@ -23,7 +23,7 @@ To edit this repository in MakeCode.
 This image shows the blocks code from the last commit in master.
 This image may take a few minutes to refresh.
 
-![A rendered view of the blocks](https://github.com/lauramurgatroyd/microbit/raw/master/.github/makecode/blocks.png)
+![A rendered view of the blocks](https://github.com/lauramurgatroyd/microbit-robot/raw/master/.github/makecode/blocks.png)
 
 #### Metadata (used for search, rendering)
 
