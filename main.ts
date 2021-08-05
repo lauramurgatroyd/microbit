@@ -1,4 +1,3 @@
-let moving = false
 function stop_moving () {
     basic.showLeds(`
         . . . . .
@@ -15,28 +14,30 @@ input.onButtonPressed(Button.A, function () {
     if (moving == true) {
         stop_moving()
     } else {
-        stop_moving()
+        start_moving()
     }
 })
 function reverse () {
-    kitronik_klip_motor.motorOn(kitronik_klip_motor.Motors.Motor1, kitronik_klip_motor.MotorDirection.Reverse, 100)
-    kitronik_klip_motor.motorOn(kitronik_klip_motor.Motors.Motor2, kitronik_klip_motor.MotorDirection.Reverse, 100)
+    kitronik_klip_motor.motorOn(kitronik_klip_motor.Motors.Motor1, kitronik_klip_motor.MotorDirection.Reverse, 50)
+    kitronik_klip_motor.motorOn(kitronik_klip_motor.Motors.Motor2, kitronik_klip_motor.MotorDirection.Reverse, 50)
 }
 function turn_left () {
-    kitronik_klip_motor.motorOn(kitronik_klip_motor.Motors.Motor1, kitronik_klip_motor.MotorDirection.Forward, 100)
-    kitronik_klip_motor.motorOff(kitronik_klip_motor.Motors.Motor2)
-    basic.pause(1000)
-    kitronik_klip_motor.motorOn(kitronik_klip_motor.Motors.Motor1, kitronik_klip_motor.MotorDirection.Forward, 100)
+    kitronik_klip_motor.motorOn(kitronik_klip_motor.Motors.Motor2, kitronik_klip_motor.MotorDirection.Forward, 50)
+    kitronik_klip_motor.motorOff(kitronik_klip_motor.Motors.Motor1)
+    basic.pause(500)
+    kitronik_klip_motor.motorOn(kitronik_klip_motor.Motors.Motor1, kitronik_klip_motor.MotorDirection.Forward, 50)
 }
 radio.onReceivedString(function (receivedString) {
-    if (receivedString == "go") {
+    if (receivedString == "forward") {
         start_moving()
     } else if (receivedString == "stop") {
         stop_moving()
     } else if (receivedString == "reverse") {
         reverse()
-    } else if (receivedString == "turn") {
+    } else if (receivedString == "left") {
         turn_left()
+    } else if (receivedString == "right") {
+        turn_right()
     }
 })
 input.onButtonPressed(Button.B, function () {
@@ -85,7 +86,15 @@ function start_moving () {
         # . . . #
         . # # # .
         `)
-    kitronik_klip_motor.motorOn(kitronik_klip_motor.Motors.Motor1, kitronik_klip_motor.MotorDirection.Forward, 100)
-    kitronik_klip_motor.motorOn(kitronik_klip_motor.Motors.Motor2, kitronik_klip_motor.MotorDirection.Forward, 100)
+    kitronik_klip_motor.motorOn(kitronik_klip_motor.Motors.Motor1, kitronik_klip_motor.MotorDirection.Forward, 50)
+    kitronik_klip_motor.motorOn(kitronik_klip_motor.Motors.Motor2, kitronik_klip_motor.MotorDirection.Forward, 50)
     moving = true
 }
+function turn_right () {
+    kitronik_klip_motor.motorOn(kitronik_klip_motor.Motors.Motor1, kitronik_klip_motor.MotorDirection.Forward, 50)
+    kitronik_klip_motor.motorOff(kitronik_klip_motor.Motors.Motor2)
+    basic.pause(500)
+    kitronik_klip_motor.motorOn(kitronik_klip_motor.Motors.Motor2, kitronik_klip_motor.MotorDirection.Forward, 50)
+}
+let moving = false
+radio.setGroup(1)
